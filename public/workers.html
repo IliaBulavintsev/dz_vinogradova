@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DZ</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/css/materialize.min.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+             <ul class="left hide-on-med-and-down">
+               <li class="active"><a href="workers.html">Преподаватели</a></li>
+               <li><a href="index.html">Должности</a></li>
+               <li><a href="sheduler.html">Печать</a></li>
+             </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <ul class="collapsible workers_container" data-collapsible="accordion">
+            </ul>
+            <a class="btn-floating btn-tiny waves-effect waves-light red add_worker"><i class="material-icons">add</i></a>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Добавление преподавателя</h4>
+            <p>
+                <form class="form__add_worker col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="fname" name="fname" type="text" class="validate">
+                      <label for="fname">Имя</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="lname" name="lname" type="text" class="validate">
+                      <label for="lname">Фамилия</label>
+                    </div>
+                  </div>
+                  <button class="btn waves-effect waves-light submit_worker" type="submit" name="action">Добавить
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="worker_add_rang" class="modal">
+          <div class="modal-content">
+            <h4>Добавление должности</h4>
+            <p>
+                <form class="form__worker_add_rang col s12">
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <select required class="select_rangs">
+                              <option value="" disabled selected>Должность</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input required min="1" max="40" id="hours" type="number" class="validate">
+                          <label for="hours">Часы</label>
+                        </div>
+                    </div>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Добавить
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="edit_worker" class="modal">
+          <div class="modal-content">
+            <h4>Редактирование преподавателя</h4>
+            <p>
+                <form class="form__edit_worker col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="fname_edit" value=" " name="fname" type="text" class="validate">
+                      <label for="fname">Имя</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input required id="lname_edit" value=" " name="lname" type="text" class="validate">
+                      <label for="lname">Фамилия</label>
+                    </div>
+                  </div>
+                  <input id="id_edit" name="id" type="hidden">
+                  <button class="btn waves-effect waves-light submit_worker_edit" type="submit" name="action">Редактировать
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="worker_edit_rang" class="modal">
+          <div class="modal-content">
+            <h4>Добавление должности</h4>
+            <p>
+                <form class="form__worker_add_rang col s12">
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <select required class="">
+                              <option value="" disabled selected>Должность</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input required min="1" max="40" id="edit_hours" type="number" class="validate">
+                          <label for="hours">Часы</label>
+                        </div>
+                    </div>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Добавить
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="/js/materialize.min.js"></script>
+        <script src="/js/worker.js"></script>
+    </body>
+</html>
