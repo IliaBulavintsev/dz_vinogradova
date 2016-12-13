@@ -9,7 +9,7 @@ router.delete('/',function(req,res){
 
     db.connection.query('DELETE from WRH where id=?;', data.id, function(err, rows, fields) {
         if (err) throw err;
-        console.log('The solution is: ', rows);
+        // console.log('The solution is: ', rows);
         res.send("OK");
     });
 });
@@ -22,7 +22,7 @@ router.post('/',function(req,res){
     db.connection.query('INSERT INTO WRH SET ?;', data, function(err, rows, fields) {
         // db.connection.end();
         if (err) throw err;
-        console.log('The solution is: ', rows);
+        // console.log('The solution is: ', rows);
         res.send("OK");
     });
 });
@@ -35,7 +35,7 @@ router.put('/',function(req,res){
     db.connection.query('UPDATE WRH SET `r_id` = ?, `hours` = ? where `id` = ?', data, function(err, rows, fields) {
         // db.connection.end();
         if (err) throw err;
-        console.log('The solution is: ', rows);
+        // console.log('The solution is: ', rows);
         res.send("OK");
     });
 });

@@ -3,48 +3,43 @@ var express = require('express');
 var router = express.Router();
 var db = require('./db');
 
+//import
+var RangSL = require('./serviceLayer/rangs');
+
 router.get('/',function(req,res){
     db.connection.query('SELECT * FROM Rangs;', function(err, rows, fields) {
         if (err) throw err;
-        console.log('The solution is: ', rows);
+        // console.log('The solution is: ', rows);
         res.send(rows);
     });
 
 });
 
 router.post('/',function(req,res){
-    console.log(req.body.rang_name);
-    var data  = {rang: req.body.rang_name};
 
-    db.connection.query('INSERT INTO Rangs SET ?;', data, function(err, rows, fields) {
-        if (err) throw err;
-        console.log('The solution is: ', rows);
-        res.send("OK");
-    });
+    var data  = {rang: req.body.rang_name};
+    let rang = new RangSL.RangSL();
+    let result = rang.create(data);
+    result ? res.send("OK") : res.send("BAD");
+
 });
 
 router.delete('/',function(req,res){
-    console.log(req.body);
-    var data  = {id: req.body.id};
 
-    db.connection.query('DELETE from Rangs where id=?;', data.id, function(err, rows, fields) {
-        if (err) throw err;
-        console.log('The solution is: ', rows);
-        res.send("OK");
-    });
+    var data  = req.body.id;
+    let rang = new RangSL.RangSL();
+    let result = rang.delete(data);
+    result ? res.send("OK") : res.send("BAD");
+
 });
 
 router.put('/',function(req,res){
-    console.log(req.body);
-    var data  = [req.body.rang_name, parseInt(req.body.id)];
 
-    // db.connection.connect();
-    db.connection.query('UPDATE Rangs SET `rang` = ? where `id` = ?', data, function(err, rows, fields) {
-        // db.connection.end();
-        if (err) throw err;
-        console.log('The solution is: ', rows);
-        res.send("OK");
-    });
+    var data  = [req.body.rang_name, parseInt(req.body.id)];
+    let rang = new RangSL.RangSL();
+    let result = rang.update(data);
+    result ? res.send("OK") : res.send("BAD");
+
 });
 
 module.exports = router;

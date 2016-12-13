@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 var workers = require('./workers');
 var rangs = require('./rangs');
 var worker_rangs = require('./worker_rangs');
+var plan = require('./plan');
+var getWorkerCollection = require('./mapper/collectionUser');
 
 
 ['/'].forEach((path) => { app.use(path, express.static('public')); });
@@ -20,6 +22,7 @@ app.use(express.static('public'));
 app.use('/workers', workers);
 app.use('/rangs', rangs);
 app.use('/worker_rangs', worker_rangs);
+app.use('/plan', plan);
 // app.get('/workers', function (req, res) {
 //   res.send('Hello World!');
 // });

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DZ</title>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/css/materialize.min.css" />
+        <link rel="stylesheet" href="/css/main.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+             <ul class="left hide-on-med-and-down">
+               <li><a href="workers.html">Преподаватели</a></li>
+               <li><a href="index.html">Должности</a></li>
+               <li  class="active"><a href="plan.html">Расписание</a></li>
+               <li><a href="sheduler.html">Печать</a></li>
+             </ul>
+            </div>
+        </nav>
+        <div class="row ">
+          <div class="col s2">
+              <div class="collection">
+                  <a href="#!" class="collection-item  m teal lighten-5">Понедельник</a>
+                  <a href="#!" class="collection-item t">Вторник</a>
+                  <a href="#!" class="collection-item w">Среда</a>
+                  <a href="#!" class="collection-item th">Четверг</a>
+                  <a href="#!" class="collection-item f">Пятница</a>
+                  <a href="#!" class="collection-item grey lighten-2"></a>
+                  <a href="#!" class="collection-item lime lighten-4 a">Добавить</a>
+                  <a href="#!" class="collection-item grey lighten-2"></a>
+                  <a href="#!" class="collection-item lime lighten-4 p">Печать</a>
+              </div>
+          </div>
+          <div class="col s8 showen m_block">
+              <table border="1" width="100%" class="striped container" cellpadding="5">
+                  <thead>
+                      <tr>
+                       <th style="width:40%">ФИ</th>
+                       <th style="width:20%">С</th>
+                       <th style="width:20%">ДО</th>
+                       <th style="width:10%">Edit</th>
+                       <th style="width:10%">Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody class="m_table">
+                  </tbody>
+              </table>
+          </div>
+          <div class="col s8 hidden t_block">
+              <table border="1" width="100%" class="striped container" cellpadding="5">
+                  <thead>
+                      <tr>
+                       <th style="width:40%">ФИ</th>
+                       <th style="width:20%">С</th>
+                       <th style="width:20%">ДО</th>
+                       <th style="width:10%">Edit</th>
+                       <th style="width:10%">Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody class="t_table">
+                  </tbody>
+              </table>
+          </div>
+          <div class="col s8 hidden w_block">
+              <table border="1" width="100%" class="striped container" cellpadding="5">
+                  <thead>
+                      <tr>
+                       <th style="width:40%">ФИ</th>
+                       <th style="width:20%">С</th>
+                       <th style="width:20%">ДО</th>
+                       <th style="width:10%">Edit</th>
+                       <th style="width:10%">Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody class="w_table">
+                  </tbody>
+              </table>
+          </div>
+          <div class="col s8 hidden th_block">
+              <table border="1" width="100%" class="striped container" cellpadding="5">
+                  <thead>
+                      <tr>
+                       <th style="width:40%">ФИ</th>
+                       <th style="width:20%">С</th>
+                       <th style="width:20%">ДО</th>
+                       <th style="width:10%">Edit</th>
+                       <th style="width:10%">Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody class="th_table">
+                  </tbody>
+              </table>
+          </div>
+          <div class="col s8 hidden f_block">
+              <table border="1" width="100%" class="striped container" cellpadding="5">
+                  <thead>
+                      <tr>
+                       <th style="width:40%">ФИ</th>
+                       <th style="width:20%">С</th>
+                       <th style="width:20%">ДО</th>
+                       <th style="width:10%">Edit</th>
+                       <th style="width:10%">Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody class="f_table">
+                  </tbody>
+              </table>
+          </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="plan_edit" class="modal">
+          <div class="modal-content">
+            <h4>Редактировать график сотрудника</h4>
+            <p>
+                <form class="form__plan_edit col s12">
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input disabled value=" " id="fl" type="text" class="validate">
+                          <label for="fl">ФИ</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input required min="9" max="21" step="0.01" id="from" type="number" class="validate">
+                          <label for="from">С</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input required min="9" max="21" step="0.01" id="to" type="number" class="validate">
+                          <label for="to">ДО</label>
+                        </div>
+                    </div>
+                    <input id="id" name="id" type="hidden">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Добавить
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="/js/materialize.min.js"></script>
+        <script src="/js/plan.js"></script>
+    </body>
+</html>
