@@ -14,12 +14,12 @@
                <li><a href="workers.html">Преподаватели</a></li>
                <li><a href="index.html">Должности</a></li>
                <li  class="active"><a href="plan.html">Расписание</a></li>
-               <li><a href="sheduler.html">Печать</a></li>
+               <li><a href="sheduler.html">Часы</a></li>
              </ul>
             </div>
         </nav>
         <div class="row ">
-          <div class="col s2">
+          <div class="col s2 menu">
               <div class="collection">
                   <a href="#!" class="collection-item  m teal lighten-5">Понедельник</a>
                   <a href="#!" class="collection-item t">Вторник</a>
@@ -33,6 +33,7 @@
               </div>
           </div>
           <div class="col s8 showen m_block">
+              <h4>Понедельник</h4>
               <table border="1" width="100%" class="striped container" cellpadding="5">
                   <thead>
                       <tr>
@@ -48,6 +49,7 @@
               </table>
           </div>
           <div class="col s8 hidden t_block">
+              <h4>Вторник</h4>
               <table border="1" width="100%" class="striped container" cellpadding="5">
                   <thead>
                       <tr>
@@ -63,6 +65,7 @@
               </table>
           </div>
           <div class="col s8 hidden w_block">
+              <h4>Среда</h4>
               <table border="1" width="100%" class="striped container" cellpadding="5">
                   <thead>
                       <tr>
@@ -78,6 +81,7 @@
               </table>
           </div>
           <div class="col s8 hidden th_block">
+              <h4>Четверг</h4>
               <table border="1" width="100%" class="striped container" cellpadding="5">
                   <thead>
                       <tr>
@@ -93,6 +97,7 @@
               </table>
           </div>
           <div class="col s8 hidden f_block">
+              <h4>Пятница</h4>
               <table border="1" width="100%" class="striped container" cellpadding="5">
                   <thead>
                       <tr>
@@ -117,24 +122,25 @@
                 <form class="form__plan_edit col s12">
                     <div class="row">
                         <div class="input-field col s7">
-                          <input disabled value=" " id="fl" type="text" class="validate">
+                          <input name="w" disabled value=" " id="fl" type="text" class="validate">
                           <label for="fl">ФИ</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                          <input required min="9" max="21" step="0.01" id="from" type="number" class="validate">
+                          <input name="from" required min="9" max="21" step="0.01" id="from" type="number" class="validate">
                           <label for="from">С</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s7">
-                          <input required min="9" max="21" step="0.01" id="to" type="number" class="validate">
+                          <input name="to" required min="9" max="21" step="0.01" id="to" type="number" class="validate">
                           <label for="to">ДО</label>
                         </div>
                     </div>
                     <input id="id" name="id" type="hidden">
-                  <button class="btn waves-effect waves-light" type="submit" name="action">Добавить
+                    <input id="table" name="d" type="hidden">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Редактировать
                     <i class="material-icons right">send</i>
                   </button>
                 </form>
@@ -142,6 +148,50 @@
           </div>
         </div>
 
+        <!-- Modal Structure -->
+        <div id="add_plan" class="modal">
+          <div class="modal-content">
+            <h4>Добавить в график</h4>
+            <p>
+                <form class="form__add_plan col s12">
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <select name="w" required class="select_add_plan_worker">
+                              <option value="" disabled selected>Работник</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <select name="d" required class="select_add_plan">
+                              <option value="" disabled selected>День</option>
+                              <option value="M" >Понедельник</option>
+                              <option value="T" >Вторник</option>
+                              <option value="W" >Среда</option>
+                              <option value="TH" >Четверг</option>
+                              <option value="W" >Пятница</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input name="from" required min="9" max="21" step="0.01" id="add_from" type="number" class="validate">
+                          <label for="from">С</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                          <input name="to" required min="9" max="21" step="0.01" id="add_to" type="number" class="validate">
+                          <label for="to">ДО</label>
+                        </div>
+                    </div>
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Добавить
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+            </p>
+          </div>
+        </div>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="/js/materialize.min.js"></script>
         <script src="/js/plan.js"></script>

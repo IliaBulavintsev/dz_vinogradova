@@ -15,16 +15,16 @@ class WorkerMapper {
 
     }
 
-    create(data){
-        db.connection.query('INSERT INTO Workers SET ?;', data, function(err, rows, fields) {
+    create(fname, lname){
+        db.connection.query('INSERT INTO Workers SET `fname` = ?, `lname` = ? ;', [fname, lname], function(err, rows, fields) {
             if (err) throw err;
             return true;
         });
         return false;
     }
 
-    update(data){
-        db.connection.query('UPDATE Workers SET `fname` = ?, `lname` = ? where `id` = ?', data, function(err, rows, fields) {
+    update(fname, lname, id){
+        db.connection.query('UPDATE Workers SET `fname` = ?, `lname` = ? where `id` = ?', [fname, lname, id], function(err, rows, fields) {
             if (err) throw err;
             return true;
         });

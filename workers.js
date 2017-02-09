@@ -13,7 +13,7 @@ router.post('/',function(req,res){
 
     var data  = {fname: req.body.fname, lname: req.body.lname};
     let worker = new WorkerSL.WorkerSL();
-    let result = worker.create(data);
+    let result = worker.create(req.body.fname, req.body.lname);
     result ? res.send("OK") : res.send("BAD");
 });
 
@@ -30,7 +30,7 @@ router.put('/',function(req,res){
     var data  = [req.body.fname, req.body.lname, parseInt(req.body.id)];
 
     let worker = new WorkerSL.WorkerSL();
-    let result = worker.update(data);
+    let result = worker.update(req.body.fname, req.body.lname, parseInt(req.body.id));
     result ? res.send("OK") : res.send("BAD");
 });
 

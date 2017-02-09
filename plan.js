@@ -15,6 +15,29 @@ var credentials = {
 //import
 var PlanSL = require('./serviceLayer/plan');
 
+router.post('/',function(req,res){
+
+    var day = req.body.d;
+    // var data = {w_id: parseInt(req.body.w), from: req.body.from, to:req.body.to};
+
+    let plan = new PlanSL.PlanSL();
+    let result = plan.create(req.body.d, parseInt(req.body.w), req.body.from, req.body.to);
+    console.log(result);
+    result ? res.send("OK") : res.send("BAD");
+
+});
+
+router.put('/',function(req,res){
+
+    var day = req.body.d.toUpperCase();
+    // var data = [ u_data, parseInt(req.body.id)] ;
+
+    let plan = new PlanSL.PlanSL();
+    let result = plan.update(day, parseFloat(req.body.from), parseFloat(req.body.to), parseInt(req.body.id));
+    result ? res.send("OK") : res.send("BAD");
+
+});
+
 router.delete('/',function(req,res){
 
     var id = parseInt(req.body.id);
@@ -32,6 +55,7 @@ router.get('/',function(req,res){
         var query3 = 'select d.id, w.fname, w.lname, `from`, `to` from W as d join Workers as w on d.w_id=w.id;'
         var query4 = 'select d.id, w.fname, w.lname, `from`, `to` from TH as d join Workers as w on d.w_id=w.id;'
         var query5 = 'select d.id, w.fname, w.lname, `from`, `to` from F as d join Workers as w on d.w_id=w.id;'
+        var query6 = 'select * from Workers;'
 
 
         var return_data = {};
@@ -69,6 +93,13 @@ router.get('/',function(req,res){
                pool.query(query5, {}, function(err, results) {
                    if (err) return parallel_done(err);
                    return_data['f'] = results;
+                   parallel_done();
+               });
+           },
+           function(parallel_done) {
+               pool.query(query6, {}, function(err, results) {
+                   if (err) return parallel_done(err);
+                   return_data['workers'] = results;
                    parallel_done();
                });
            },

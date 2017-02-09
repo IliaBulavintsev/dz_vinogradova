@@ -15,12 +15,12 @@ class PlanSL {
         // return this.collection.get();
     }
 
-    create(data){
-        return this.mapper.create(data);
+    create(day, w_id, from, to){
+        return this.mapper.create(day, w_id, from, to);
     }
 
-    update(data){
-        return this.mapper.update(data);
+    update(day, data){
+        return this.mapper.update(day, from, to, id);
     }
 
     delete(id, table){

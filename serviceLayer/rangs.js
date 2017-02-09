@@ -17,12 +17,12 @@ class RangSL {
         // return this.collection.get();
     }
 
-    create(data){
-        return this.mapper.create(data);
+    create(rang){
+        return this.mapper.create(rang);
     }
 
-    update(data){
-        return this.mapper.update(data);
+    update(rang, id){
+        return this.mapper.update(rang, id);
     }
 
     delete(id){

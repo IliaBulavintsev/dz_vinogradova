@@ -34,7 +34,12 @@
         }
 
         $('.striped').append(str);
-        window.print() ;
+        $('.p').on('click', ()=>{
+            $('.menu').hide();
+            window.print();
+            $('.menu').show();
+        })
+
 
     }
     //requests

@@ -19,7 +19,7 @@ router.post('/',function(req,res){
 
     var data  = {rang: req.body.rang_name};
     let rang = new RangSL.RangSL();
-    let result = rang.create(data);
+    let result = rang.create(req.body.rang_name);
     result ? res.send("OK") : res.send("BAD");
 
 });
@@ -37,7 +37,7 @@ router.put('/',function(req,res){
 
     var data  = [req.body.rang_name, parseInt(req.body.id)];
     let rang = new RangSL.RangSL();
-    let result = rang.update(data);
+    let result = rang.update(req.body.rang_name, parseInt(req.body.id));
     result ? res.send("OK") : res.send("BAD");
 
 });

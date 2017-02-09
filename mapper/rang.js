@@ -14,16 +14,16 @@ class RangMapper {
 
     }
 
-    create(data){
-        db.connection.query('INSERT INTO Rangs SET ?;', data, function(err, rows, fields) {
+    create(rang){
+        db.connection.query('INSERT INTO Rangs SET ?;', [rang], function(err, rows, fields) {
             if (err) throw err;
             return true;
         });
         return false;
     }
 
-    update(data){
-        db.connection.query('UPDATE Rangs SET `rang` = ? where `id` = ?', data, function(err, rows, fields) {
+    update(rang, id){
+        db.connection.query('UPDATE Rangs SET `rang` = ? where `id` = ?', [rang, id], function(err, rows, fields) {
             if (err) throw err;
             return true;
         });

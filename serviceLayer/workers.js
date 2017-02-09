@@ -17,12 +17,12 @@ class WorkerSL {
         return this.collection.get();
     }
 
-    create(data){
-        return this.mapper.create(data);
+    create(fname, lname){
+        return this.mapper.create(fname, lname);
     }
 
-    update(data){
-        return this.mapper.update(data);
+    update(fname, lname, id){
+        return this.mapper.update(fname, lname, id);
     }
 
     delete(id){

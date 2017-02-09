@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
+var async = require('async');
 
 class PlanMapper {
 
@@ -16,19 +17,18 @@ class PlanMapper {
 
     }
 
-    create(data){
-        // db.connection.query('INSERT INTO Rangs SET ?;', data, function(err, rows, fields) {
-        //     if (err) throw err;
-        //     return true;
-        // });
-        // return false;
+    create(day, w_id, from, to){
+        db.connection.query(`INSERT INTO ${day} (w_id, from, to) values ?;`, [w_id, from, to], function(err, rows, fields) {
+
+        });
+        return false;
     }
 
-    update(data){
-        // db.connection.query('UPDATE Rangs SET `rang` = ? where `id` = ?', data, function(err, rows, fields) {
-        //     if (err) throw err;
-        //     return true;
-        // });
+    update(day, from, to, id){
+        db.connection.query(`UPDATE ${day} SET ? where id = ?`,[{from: from, to: to}, id], function(err, rows, fields) {
+            if (err) {return false;}
+            return true;
+        });
         // return false;
     }
 
@@ -36,10 +36,10 @@ class PlanMapper {
         var t = table.toUpperCase();
         console.log(t,id);
         db.connection.query(`DELETE from ${t} where id=? ;`, [id], function(err, rows, fields) {
-            if (err) throw err;
+            if (err) {return false;}
             return true;
         });
-        return false;
+        // return false;
     }
 }
 
